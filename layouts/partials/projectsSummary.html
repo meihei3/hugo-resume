@@ -3,8 +3,14 @@
 <div class="resume-item d-flex flex-column flex-md-row mb-3">
 
   <div class="resume-content" style="width:200px;">
-    {{with  .Params.image }}
-      <img src="{{ . }}" style="max-height:150px;max-width:150px;"/>
+    {{ if .Params.image_resized }}
+      {{with  .Params.image_resized }}
+        <img src="{{ . }}" style="max-height:150px;max-width:150px;"/>
+      {{ end }}
+    {{ else }}
+      {{with  .Params.image }}
+        <img src="{{ . }}" style="max-height:150px;max-width:150px;"/>
+      {{ end }}
     {{ end }}
   </div>
   <div class="resume-date">
